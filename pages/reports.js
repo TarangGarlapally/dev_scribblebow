@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import firebase from "../components/firebase.js"
 import ReportTile from "../components/ReportTile.js";
+import styles from "../styles/Reports.module.css";
+
 export default function reports(){
 	const [repState, setRepState] = useState(false);
 	const [reportlist, setReportlist] = useState([]);
@@ -19,10 +21,9 @@ export default function reports(){
 	}, []);
 	
 	
-	return <React.Fragment>
-	<p>Reports</p>
+	return <div className = {styles.pageBody}>
 	{reportlist.length === 0?null:<ReportTiles reportlist = {reportlist}/>}
-	</React.Fragment>
+	</div>
 }
 
 const ReportTiles = (props)=>{
